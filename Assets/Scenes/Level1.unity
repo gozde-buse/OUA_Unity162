@@ -816,6 +816,10 @@ PrefabInstance:
       propertyPath: objectToDragPrefab
       value: 
       objectReference: {fileID: 4899799403806592088, guid: f414e5cf80d746f41bd62519c6ff3496, type: 3}
+    - target: {fileID: 1493182608, guid: cfebd6e83f005524fb83947e7bd33680, type: 3}
+      propertyPath: dragPlaceholderSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 146add2bbf6fd5346ad240bb858f6b55, type: 3}
     - target: {fileID: 6218058744965266406, guid: cfebd6e83f005524fb83947e7bd33680, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1710,6 +1714,10 @@ PrefabInstance:
       propertyPath: objectToDragPrefab
       value: 
       objectReference: {fileID: 175027212861605619, guid: 0812b640a90f4304085ae7c1fe04ad64, type: 3}
+    - target: {fileID: 1493182608, guid: cfebd6e83f005524fb83947e7bd33680, type: 3}
+      propertyPath: dragPlaceholderSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 146add2bbf6fd5346ad240bb858f6b55, type: 3}
     - target: {fileID: 6218058744965266406, guid: cfebd6e83f005524fb83947e7bd33680, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

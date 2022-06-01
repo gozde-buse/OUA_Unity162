@@ -5,22 +5,10 @@ using UnityEngine;
 public class Object : MonoBehaviour
 {
     public enum Type { Fruit, Vegetable }
-    public enum Fruit { None, Strawberry }
-    public enum Vegetable { None, Onion }
 
     [SerializeField] private Type type;
-    [SerializeField] private Fruit fruitName;
-    [SerializeField] private Vegetable vegetableName;
 
     private GameObject button;
-
-    void Awake()
-    {
-        if (type == Type.Fruit)
-            vegetableName = Vegetable.None;
-        else
-            fruitName = Fruit.None;
-    }
 
     void Update()
     {
