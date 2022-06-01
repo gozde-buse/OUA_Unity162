@@ -5,7 +5,6 @@ Oyun ve Uygulama Akademisi Bootcamp projesi için açılmış repodur.
 Çalar Saat
 
 # Ürün İle İlgili Bilgiler
-Android işletim sistemi ile uyumlu çalışabilen 2 boyutlu bir oyun.
 
 ## Takım Elemanları
 - Gözde Buse Öcal: Ürün Sahibi / Scrum Master / Geliştirici
@@ -19,9 +18,10 @@ Android işletim sistemi ile uyumlu çalışabilen 2 boyutlu bir oyun.
 
 ## Ürün Özellikleri
 - Farklı nesneleri tanıtma ve sınıflandırma
+- Android işletim sistemi ile uyumlu çalışabilen 2 boyutlu bir oyun.
 
 ## Hedef Kitle
-- 2-6 yaş arası çocuklar
+- 3-6 yaş arası çocuklar
 
 ## Product Backlog URL
 [Backlog Linki](https://miro.com/app/board/uXjVOwStjDI=/)
