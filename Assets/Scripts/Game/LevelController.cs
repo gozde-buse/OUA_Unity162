@@ -67,7 +67,8 @@ public class LevelController : MonoBehaviour
         if(totalButton == 0)
         {
             endGamePanel.SetActive(true);
-            PlayerStats.SetLevelStar(1, startCount);
+            PlayerStats.SetLevelStar(0, startCount);
+            SaveManagement.Save();
         }
     }
 

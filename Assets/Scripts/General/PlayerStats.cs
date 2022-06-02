@@ -14,6 +14,7 @@ public static class PlayerStats
 
     public static void SetLevelStar(int index, int starCount)
     {
-        levelStars[index] = starCount;
+        if(levelStars[index] < starCount)
+            levelStars[index] = starCount;
     }
 }

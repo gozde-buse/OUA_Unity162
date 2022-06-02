@@ -94,6 +94,6 @@ public class PlayerData
         PlayerStats.SetLevel(level);
 
         for (int i = 0; i < PlayerStats.levelStars.Length; i++)
-            PlayerStats.SetLevelStar(i, levelStars[i]);
+            PlayerStats.SetLevelStar(i, (int) Char.GetNumericValue(levelStars[0]));
     }
 }

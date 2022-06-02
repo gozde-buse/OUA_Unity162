@@ -4,7 +4,11 @@ public class Init : MonoBehaviour
 {
     void Awake()
     {
-        if(!SaveManagement.ControlData())
+        /*SaveManagement.DeleteData();
+
+        return;*/
+
+        if (!SaveManagement.ControlData())
             SaveManagement.CreateData();
 
         SaveManagement.Load();
