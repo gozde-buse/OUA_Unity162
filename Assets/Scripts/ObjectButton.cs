@@ -7,6 +7,7 @@ public class ObjectButton : MonoBehaviour
 {
     [SerializeField] private GameObject objectToDragPrefab;
     [SerializeField] private Sprite dragPlaceholderSprite;
+    [SerializeField] private GameObject correctObject;
 
     private float timeofTouch = 0;
     private bool touching = false;
@@ -23,13 +24,13 @@ public class ObjectButton : MonoBehaviour
         if (touching)
             timeofTouch += Time.deltaTime;
 
-        if (timeofTouch > 1f)
+        if (timeofTouch > .5f)
             StartObjectDragging();
     }
 
     public void Touch()
     {
-        //Ses çal
+        //Ses Çal
         Debug.Log("Ses çalýyorum.");
 
         timeofTouch = 0;
@@ -57,7 +58,7 @@ public class ObjectButton : MonoBehaviour
         Vector3 sPanposition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         sPanposition.z = 0;
         GameObject objectToDrag = Instantiate(objectToDragPrefab, sPanposition, objectToDragPrefab.transform.rotation);
-        objectToDrag.GetComponent<Object>().SetButton(gameObject);
+        objectToDrag.GetComponent<Object>().SetButton(this);
     }
 
     public void LoadBack()
@@ -67,8 +68,34 @@ public class ObjectButton : MonoBehaviour
 
     public void CorrectPlacement()
     {
-        //Objeyi açacak
+        StartCoroutine(CorrectPlacementAnimation());
+    }
 
+    private IEnumerator CorrectPlacementAnimation()
+    {
+        float animationTime = .3f;
+        float elapsedTime = 0;
+
+        Vector3 initialScale = Vector3.zero;
+        Vector3 endScale = correctObject.transform.localScale;
+
+        correctObject.transform.localScale = initialScale;
+        correctObject.SetActive(true);
+
+        while (elapsedTime <= animationTime)
+        {
+            correctObject.transform.localScale = Vector3.Lerp(initialScale, endScale, elapsedTime / animationTime);
+            elapsedTime += Time.fixedDeltaTime;
+
+            yield return new WaitForFixedUpdate();
+        }
+
+        correctObject.transform.localScale = endScale;
         Destroy(gameObject);
+    }
+
+    public Vector3 GetCorrectObjectPosition()
+    {
+        return correctObject.transform.position;
     }
 }
