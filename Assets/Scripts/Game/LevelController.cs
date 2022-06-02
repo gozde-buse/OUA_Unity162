@@ -9,6 +9,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] private GameObject objectButtonParent;
     [SerializeField] private GameObject starParent;
     [SerializeField] private Sprite starSprite;
+    [SerializeField] private GameObject endGamePanel;
 
     public float xLimit;
     public float yLimit;
@@ -65,7 +66,8 @@ public class LevelController : MonoBehaviour
 
         if(totalButton == 0)
         {
-            //End Game
+            endGamePanel.SetActive(true);
+            PlayerStats.SetLevelStar(1, startCount);
         }
     }
 
@@ -101,5 +103,10 @@ public class LevelController : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void BackToLevels()
+    {
+        SceneController.LoadScene("LevelSelection");
     }
 }
