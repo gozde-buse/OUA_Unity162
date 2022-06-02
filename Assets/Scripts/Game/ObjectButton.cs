@@ -91,6 +91,9 @@ public class ObjectButton : MonoBehaviour
         }
 
         correctObject.transform.localScale = endScale;
+        LevelController.instance.IncreaseStarCount();
+        LevelController.instance.DecreaseButtonCount();
+
         Destroy(gameObject);
     }
 

@@ -803,9 +803,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e276727d1cd144f95255cc56fa5e65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bottomUIPanel: {fileID: 1918944135}
   inSide: {fileID: 1008183788}
   objectButtonParent: {fileID: 1918944135}
+  starParent: {fileID: 1813685984}
+  starSprite: {fileID: 21300000, guid: 912167e2851f7ab48ae0bccbdc91f7de, type: 3}
   xLimit: 0
   yLimit: 0
 --- !u!1 &960790446

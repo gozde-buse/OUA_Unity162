@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
     [SerializeField] private GameObject inSide;
     [SerializeField] private GameObject objectButtonParent;
+    [SerializeField] private GameObject starParent;
+    [SerializeField] private Sprite starSprite;
 
     public float xLimit;
     public float yLimit;
 
     public static LevelController instance;
+
+    private int totalButton;
+    private int startCount;
 
     void Awake()
     {
@@ -27,6 +33,9 @@ public class LevelController : MonoBehaviour
         yLimit = objectButtonParent.GetComponent<RectTransform>().sizeDelta.y;
 
         ShuffleObjectButtons();
+
+        startCount = 0;
+        totalButton = objectButtonParent.transform.childCount;
     }
 
     private void ShuffleObjectButtons()
@@ -47,6 +56,25 @@ public class LevelController : MonoBehaviour
         for(int i = 0; i < shuffled.Count; i++)
         {
             shuffled[i].transform.SetSiblingIndex(i);
+        }
+    }
+
+    public void DecreaseButtonCount()
+    {
+        totalButton--;
+
+        if(totalButton == 0)
+        {
+            //End Game
+        }
+    }
+
+    public void IncreaseStarCount()
+    {
+        if (startCount < 3)
+        {
+            starParent.transform.GetChild(startCount).GetComponent<Image>().sprite = starSprite;
+            startCount++;
         }
     }
 
