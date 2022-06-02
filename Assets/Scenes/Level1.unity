@@ -804,8 +804,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bottomUIPanel: {fileID: 1918944135}
-  topUIPanel: {fileID: 960790446}
   inSide: {fileID: 1008183788}
+  objectButtonParent: {fileID: 1918944135}
   xLimit: 0
   yLimit: 0
 --- !u!1 &960790446

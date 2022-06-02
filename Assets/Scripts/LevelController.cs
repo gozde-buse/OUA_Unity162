@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-    [SerializeField] private GameObject bottomUIPanel;
     [SerializeField] private GameObject inSide;
+    [SerializeField] private GameObject objectButtonParent;
 
     public float xLimit;
     public float yLimit;
@@ -24,7 +24,30 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         xLimit = Screen.width / 2;
-        yLimit = bottomUIPanel.GetComponent<RectTransform>().sizeDelta.y;
+        yLimit = objectButtonParent.GetComponent<RectTransform>().sizeDelta.y;
+
+        ShuffleObjectButtons();
+    }
+
+    private void ShuffleObjectButtons()
+    {
+        List<GameObject> shuffled = new List<GameObject>();
+        List<GameObject> willshuffle = new List<GameObject>();
+
+        foreach (Transform objectButton in objectButtonParent.transform)
+            willshuffle.Add(objectButton.gameObject);
+
+        while(willshuffle.Count > 0)
+        {
+            int id = Random.Range(0, willshuffle.Count);
+            shuffled.Add(willshuffle[id]);
+            willshuffle.RemoveAt(id);
+        }
+
+        for(int i = 0; i < shuffled.Count; i++)
+        {
+            shuffled[i].transform.SetSiblingIndex(i);
+        }
     }
 
     public void ChangeSide(int side)
