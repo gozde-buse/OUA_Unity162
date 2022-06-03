@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 9e375d4d98654414a95d87845f9b3c19
+guid: a0723b828635e6d4f961de0b0d6babc2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8430137894388489581
-    second: PanelBackgroundSprite
+      213: 4297892963624714658
+    second: PicnicMat
   - first:
-      213: -8845919951442575272
-    second: Background
+      213: -8572377435009162324
+    second: Basket
+  - first:
+      213: -3226854027998920792
+    second: Wood
+  - first:
+      213: -5613824867225632197
+    second: Plate
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -49,7 +55,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -133,43 +139,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PanelBackgroundSprite
+      name: PicnicMat
       rect:
         serializedVersion: 2
-        x: 3015
-        y: 4098
-        width: 930
-        height: 659
+        x: 2
+        y: 642
+        width: 1277
+        height: 1278
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 160, y: 120, z: 160, w: 120}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3922a65ff32220b80800000000000000
-      internalID: -8430137894388489581
+      spriteID: 2a1808311ee25ab30800000000000000
+      internalID: 4297892963624714658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Background
+      name: Basket
       rect:
         serializedVersion: 2
-        x: 3057
-        y: 3579
-        width: 831
-        height: 475
+        x: 1532
+        y: 920
+        width: 772
+        height: 673
       alignment: 0
       pivot: {x: 0, y: 0}
-      border: {x: 80, y: 80, z: 80, w: 80}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85089befbaafc3580800000000000000
-      internalID: -8845919951442575272
+      spriteID: ca364b9242cc80980800000000000000
+      internalID: -8572377435009162324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wood
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 120
+        width: 1201
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aff51fab59e733d0800000000000000
+      internalID: -3226854027998920792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plate
+      rect:
+        serializedVersion: 2
+        x: 1516
+        y: 154
+        width: 782
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3203cdc600b712b0800000000000000
+      internalID: -5613824867225632197
       vertices: []
       indices: 
       edges: []

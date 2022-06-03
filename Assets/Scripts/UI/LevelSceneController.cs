@@ -28,4 +28,9 @@ public class LevelSceneController : MonoBehaviour
     {
         SceneController.LoadScene("Level" + levelId.ToString());
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

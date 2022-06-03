@@ -55,6 +55,9 @@ public class ObjectButton : MonoBehaviour
 
         GetComponent<Image>().sprite = dragPlaceholderSprite;
 
+        foreach (Transform face in transform)
+            face.gameObject.SetActive(false);
+
         Vector3 sPanposition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         sPanposition.z = 0;
         GameObject objectToDrag = Instantiate(objectToDragPrefab, sPanposition, objectToDragPrefab.transform.rotation);
@@ -64,6 +67,9 @@ public class ObjectButton : MonoBehaviour
     public void LoadBack()
     {
         GetComponent<Image>().sprite = normalSprite;
+
+        foreach(Transform face in transform)
+            face.gameObject.SetActive(true);
     }
 
     public void CorrectPlacement()

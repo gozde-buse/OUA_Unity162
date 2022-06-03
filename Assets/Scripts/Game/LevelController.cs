@@ -35,6 +35,11 @@ public class LevelController : MonoBehaviour
 
         ShuffleObjectButtons();
 
+        for(int i = 4; i < objectButtonParent.transform.childCount; i++)
+        {
+            objectButtonParent.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
         startCount = 0;
         totalButton = objectButtonParent.transform.childCount;
     }
@@ -63,6 +68,11 @@ public class LevelController : MonoBehaviour
     public void DecreaseButtonCount()
     {
         totalButton--;
+
+        if(totalButton >= 4)
+        {
+            objectButtonParent.transform.GetChild(3).gameObject.SetActive(true);
+        }
 
         if(totalButton == 0)
         {
