@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
-    [SerializeField] private GameObject inSide;
+    [SerializeField] private GameObject inSideFruit;
+    [SerializeField] private GameObject inSideVegetable;
     [SerializeField] private GameObject objectButtonParent;
     [SerializeField] private GameObject starParent;
     [SerializeField] private Sprite starSprite;
+    [SerializeField] private Sprite starGraySprite;
+    [SerializeField] private Sprite happyFace;
+    [SerializeField] private Sprite sadFace;
     [SerializeField] private GameObject endGamePanel;
 
     public float xLimit;
@@ -18,6 +22,7 @@ public class LevelController : MonoBehaviour
 
     private int totalButton;
     private int startCount;
+    private int wrongCount;
 
     void Awake()
     {
@@ -41,6 +46,7 @@ public class LevelController : MonoBehaviour
         }
 
         startCount = 0;
+        wrongCount = 0;
         totalButton = objectButtonParent.transform.childCount;
     }
 
@@ -71,7 +77,7 @@ public class LevelController : MonoBehaviour
 
         if(totalButton >= 4)
         {
-            objectButtonParent.transform.GetChild(3).gameObject.SetActive(true);
+            objectButtonParent.transform.GetChild(4).gameObject.SetActive(true);
         }
 
         if(totalButton == 0)
@@ -87,7 +93,29 @@ public class LevelController : MonoBehaviour
         if (startCount < 3)
         {
             starParent.transform.GetChild(startCount).GetComponent<Image>().sprite = starSprite;
+            Transform face = starParent.transform.GetChild(startCount).GetChild(0);
+            face.GetComponent<Image>().sprite = happyFace;
+            face.GetComponent<Image>().color = Color.white;
             startCount++;
+        }
+    }
+
+    public void DecreaseStarCount()
+    {
+        wrongCount++;
+
+        if(wrongCount > 4)
+        {
+            wrongCount = 0;
+
+            if(startCount > 0)
+            {
+                startCount--;
+                starParent.transform.GetChild(startCount).GetComponent<Image>().sprite = starGraySprite;
+                Transform face = starParent.transform.GetChild(startCount).GetChild(0);
+                face.GetComponent<Image>().sprite = sadFace;
+                face.GetComponent<Image>().color = new Color32(118, 118, 118, 150);
+            }
         }
     }
 
@@ -96,20 +124,21 @@ public class LevelController : MonoBehaviour
         switch (side)
         {
             case 1:
-                inSide.SetActive(true);
-                inSide.transform.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+                inSideVegetable.SetActive(true);
+                inSideFruit.SetActive(false);
 
                 break;
 
             case -1:
-                inSide.SetActive(true);
-                inSide.transform.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
+                inSideVegetable.SetActive(false);
+                inSideFruit.SetActive(true);
 
                 break;
 
             case 0:
             default:
-                inSide.SetActive(false);
+                inSideVegetable.SetActive(false);
+                inSideFruit.SetActive(false);
 
                 break;
 

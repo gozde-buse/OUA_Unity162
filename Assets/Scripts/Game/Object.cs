@@ -25,11 +25,17 @@ public class Object : MonoBehaviour
         Type? dropBasketType = ControlDropBasket();
 
         if (dropBasketType == Type.Fruit)
+        {
             LevelController.instance.ChangeSide(-1);
+        }
         else if (dropBasketType == Type.Vegetable)
+        {
             LevelController.instance.ChangeSide(1);
+        }
         else
+        {
             LevelController.instance.ChangeSide(0);
+        }
     }
 
     private void DropToBasket()

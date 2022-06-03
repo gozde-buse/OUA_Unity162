@@ -66,6 +66,9 @@ public class ObjectButton : MonoBehaviour
 
     public void LoadBack()
     {
+        LevelController.instance.DecreaseStarCount();
+        LevelController.instance.ChangeSide(0);
+
         GetComponent<Image>().sprite = normalSprite;
 
         foreach(Transform face in transform)
@@ -74,6 +77,7 @@ public class ObjectButton : MonoBehaviour
 
     public void CorrectPlacement()
     {
+        LevelController.instance.ChangeSide(0);
         StartCoroutine(CorrectPlacementAnimation());
     }
 
