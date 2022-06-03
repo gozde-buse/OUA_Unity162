@@ -95,7 +95,7 @@ public class Object : MonoBehaviour
 
     private IEnumerator ToBasket()
     {
-        float animationTime = .1f;
+        float animationTime = .2f;
         float elapsedTime = 0;
 
         Vector3 initialPosition = transform.position;
@@ -122,7 +122,7 @@ public class Object : MonoBehaviour
 
     private IEnumerator BackToButton()
     {
-        float animationTime = .5f;
+        float animationTime = .3f;
         float elapsedTime = 0;
 
         Vector3 initialPosition = transform.position;
