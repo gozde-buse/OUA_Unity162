@@ -98,6 +98,9 @@ public class LevelController : MonoBehaviour
             face.GetComponent<Image>().color = Color.white;
             startCount++;
         }
+
+        if(wrongCount > 0)
+            wrongCount--;
     }
 
     public void DecreaseStarCount()

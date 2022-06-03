@@ -10,6 +10,12 @@ public class Object : MonoBehaviour
     [SerializeField] private Sprite[] faces;
 
     private ObjectButton button;
+    private Animator animator;
+
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -64,17 +70,17 @@ public class Object : MonoBehaviour
         if ((index == -1 && type == Type.Fruit) || (index == 1 && type == Type.Vegetable))
         {
             faceIndex = 1;
-            //Animasyonu baþlat
+            animator.SetBool("Dancing", true);
         }
         else if ((index == -1 && type != Type.Fruit) || (index == 1 && type != Type.Vegetable))
         {
             faceIndex = 2;
-            //Animasyonu durdur
+            animator.SetBool("Dancing", false);
         }
         else
         {
             faceIndex = 0;
-            //Animasyonu durdur
+            animator.SetBool("Dancing", false);
         }
 
         foreach (Transform face in transform)

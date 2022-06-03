@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7844808633889584177}
   - component: {fileID: 7844808633889584176}
   - component: {fileID: 7844808633889584179}
+  - component: {fileID: 2150773570322464973}
   m_Layer: 0
   m_Name: Pepper
   m_TagString: Untagged
@@ -101,6 +102,25 @@ MonoBehaviour:
   - {fileID: -2352396353401391747, guid: 772d0d5c304bb824e8d790afa8808b8b, type: 3}
   - {fileID: 5219528537255451192, guid: 772d0d5c304bb824e8d790afa8808b8b, type: 3}
   - {fileID: 6236675656088661469, guid: 772d0d5c304bb824e8d790afa8808b8b, type: 3}
+--- !u!95 &2150773570322464973
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7844808633889584178}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5f70782637351ac498ec6e51f029be0a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7844808635722252567
 GameObject:
   m_ObjectHideFlags: 0
