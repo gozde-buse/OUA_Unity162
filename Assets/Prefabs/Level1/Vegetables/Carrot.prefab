@@ -179,3 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  faces:
+  - {fileID: -2352396353401391747, guid: 772d0d5c304bb824e8d790afa8808b8b, type: 3}
+  - {fileID: 5219528537255451192, guid: 772d0d5c304bb824e8d790afa8808b8b, type: 3}
+  - {fileID: 6236675656088661469, guid: 772d0d5c304bb824e8d790afa8808b8b, type: 3}

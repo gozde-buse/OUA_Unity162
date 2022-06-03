@@ -7,6 +7,7 @@ public class Object : MonoBehaviour
     public enum Type { Fruit, Vegetable }
 
     [SerializeField] private Type type;
+    [SerializeField] private Sprite[] faces;
 
     private ObjectButton button;
 
@@ -27,14 +28,17 @@ public class Object : MonoBehaviour
         if (dropBasketType == Type.Fruit)
         {
             LevelController.instance.ChangeSide(-1);
+            ChangeFace(-1);
         }
         else if (dropBasketType == Type.Vegetable)
         {
             LevelController.instance.ChangeSide(1);
+            ChangeFace(1);
         }
         else
         {
             LevelController.instance.ChangeSide(0);
+            ChangeFace(0);
         }
     }
 
@@ -51,6 +55,30 @@ public class Object : MonoBehaviour
         {
             StartCoroutine(BackToButton());
         }
+    }
+
+    private void ChangeFace(int index)
+    {
+        int faceIndex = 0;
+
+        if ((index == -1 && type == Type.Fruit) || (index == 1 && type == Type.Vegetable))
+        {
+            faceIndex = 1;
+            //Animasyonu baþlat
+        }
+        else if ((index == -1 && type != Type.Fruit) || (index == 1 && type != Type.Vegetable))
+        {
+            faceIndex = 2;
+            //Animasyonu durdur
+        }
+        else
+        {
+            faceIndex = 0;
+            //Animasyonu durdur
+        }
+
+        foreach (Transform face in transform)
+            face.GetComponent<SpriteRenderer>().sprite = faces[faceIndex];
     }
 
     private Type? ControlDropBasket()
