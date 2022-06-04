@@ -14,6 +14,7 @@ public class LevelController : MonoBehaviour
     [SerializeField] private Sprite happyFace;
     [SerializeField] private Sprite sadFace;
     [SerializeField] private GameObject endGamePanel;
+    [SerializeField] private GameObject infoPanel;
 
     public float xLimit;
     public float yLimit;
@@ -156,6 +157,16 @@ public class LevelController : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void OpenInfoPanel()
+    {
+        infoPanel.SetActive(true);
+    }
+
+    public void CloseInfoPanel()
+    {
+        infoPanel.SetActive(false);
     }
 
     public void VoiceBasketName(string name)
