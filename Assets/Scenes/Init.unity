@@ -845,7 +845,7 @@ MonoBehaviour:
     - name: Vegetable
       clip: {fileID: 8300000, guid: ff23e7bafad89364dbf3282d7ffc913e, type: 3}
       volume: 1
-    isSFX: 0
+    isSFX: 1
     isLoop: 0
     source: {fileID: 0}
     currentClip:
