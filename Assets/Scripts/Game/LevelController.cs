@@ -161,11 +161,13 @@ public class LevelController : MonoBehaviour
 
     public void OpenInfoPanel()
     {
+        AudioController.instance.Click();
         infoPanel.SetActive(true);
     }
 
     public void CloseInfoPanel()
     {
+        AudioController.instance.Click();
         infoPanel.SetActive(false);
     }
 
