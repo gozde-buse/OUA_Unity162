@@ -12,7 +12,8 @@ public class ObjectButton : MonoBehaviour
     [SerializeField] private Sprite dragPlaceholderSprite;
     [SerializeField] private GameObject correctObject;
 
-    private float timeofTouch = 0;
+    //private float timeofTouch = 0;
+    private Vector3 initialTouch;
     private bool touching = false;
     private bool dragging = false;
 
@@ -21,15 +22,26 @@ public class ObjectButton : MonoBehaviour
     void Awake()
     {
         normalSprite = GetComponent<Image>().sprite;
+        initialTouch.x = Mathf.Infinity;
     }
 
     void Update()
     {
         if (touching)
-            timeofTouch += Time.deltaTime;
+        {
+            Vector3 newTouch = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            newTouch.z = 0;
 
-        if (timeofTouch > .5f)
-            StartObjectDragging();
+            if (Vector3.Distance(initialTouch, newTouch) >= .6f)
+            {
+                StartObjectDragging();
+            }
+
+            //timeofTouch += Time.deltaTime;
+        }
+
+        /*if (timeofTouch > .5f)
+            StartObjectDragging();*/
     }
 
     public void Touch()
@@ -43,7 +55,7 @@ public class ObjectButton : MonoBehaviour
         if (!dragging)
             AudioController.instance.Play("Info", nameOfButton.ToString());
 
-        timeofTouch = 0;
+        initialTouch.x = Mathf.Infinity;
         touching = false;
     }
 
@@ -56,6 +68,8 @@ public class ObjectButton : MonoBehaviour
 
 #endif
 
+        initialTouch = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        initialTouch.z = 0;
         touching = true;
     }
 
@@ -68,7 +82,7 @@ public class ObjectButton : MonoBehaviour
 
 #endif
 
-        timeofTouch = 0;
+        initialTouch.x = Mathf.Infinity;
         touching = false;
     }
 
@@ -81,7 +95,7 @@ public class ObjectButton : MonoBehaviour
 
 #endif
 
-        timeofTouch = 0;
+        initialTouch.x = Mathf.Infinity;
         touching = false;
         dragging = true;
 
