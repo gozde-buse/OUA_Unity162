@@ -15,6 +15,7 @@ public class Object : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
+        AudioController.instance.Play("Sfx", "Excited");
     }
 
     void Update()
@@ -52,10 +53,17 @@ public class Object : MonoBehaviour
     {
         Type? dropBasketType = ControlDropBasket();
 
-        if((dropBasketType == Type.Fruit && Type.Fruit == type) ||
+        if ((dropBasketType == Type.Fruit && Type.Fruit == type) ||
             (dropBasketType == Type.Vegetable && Type.Vegetable == type))
         {
+            AudioController.instance.Play("Sfx", "Correct");
             StartCoroutine(ToBasket());
+        }
+        else if ((dropBasketType == Type.Fruit && Type.Fruit != type) ||
+            (dropBasketType == Type.Vegetable && Type.Vegetable != type))
+        {
+            AudioController.instance.Play("Sfx", "Wrong");
+            StartCoroutine(BackToButton());
         }
         else
         {
@@ -71,11 +79,13 @@ public class Object : MonoBehaviour
         {
             faceIndex = 1;
             animator.SetBool("Dancing", true);
+            AudioController.instance.Play("Sfx", "Happy");
         }
         else if ((index == -1 && type != Type.Fruit) || (index == 1 && type != Type.Vegetable))
         {
             faceIndex = 2;
             animator.SetBool("Dancing", false);
+            AudioController.instance.Play("Sfx", "Sad");
         }
         else
         {

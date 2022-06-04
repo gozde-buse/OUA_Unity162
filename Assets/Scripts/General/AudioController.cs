@@ -55,7 +55,6 @@ public class AudioController : MonoBehaviour
         }
 
         sound.source.clip = soundClip.clip;
-        sound.source.loop = soundClip.loop;
         sound.source.volume = soundClip.volume * (sound.isSFX ? volumeMultiplierSFX : volumeMultiplierBGM);
 
         sound.source.Play();
@@ -74,6 +73,11 @@ public class AudioController : MonoBehaviour
         sfxButton.GetComponent<Image>().sprite = sfxSprites[sfx ? 1 : 0];
         volumeMultiplierSFX = sfx ? 1 : 0;
     }
+
+    public void Click()
+    {
+        AudioController.instance.Play("Sfx", "Click");
+    }
 }
 
 [Serializable]
@@ -91,7 +95,6 @@ public class Clip
 {
     public string name;
     public AudioClip clip;
-    public bool loop;
 
     [Range(0f, 1f)] public float volume;
 }

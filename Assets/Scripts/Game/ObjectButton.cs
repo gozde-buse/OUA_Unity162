@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class ObjectButton : MonoBehaviour
 {
+    public enum Name { Strawberry, Apple, Orange, Cherry, Banana, Broccoli, Pepper, Tomato, Carrot, Onion }
+
+    [SerializeField] private Name name;
     [SerializeField] private GameObject objectToDragPrefab;
     [SerializeField] private Sprite dragPlaceholderSprite;
     [SerializeField] private GameObject correctObject;
@@ -30,8 +33,7 @@ public class ObjectButton : MonoBehaviour
 
     public void Touch()
     {
-        //Ses Çal
-        Debug.Log("Ses çalýyorum.");
+        AudioController.instance.Play("Info", name.ToString());
 
         timeofTouch = 0;
         touching = false;
@@ -78,6 +80,7 @@ public class ObjectButton : MonoBehaviour
     public void CorrectPlacement()
     {
         LevelController.instance.ChangeSide(0);
+        AudioController.instance.Play("Song", "SingAlone");
         StartCoroutine(CorrectPlacementAnimation());
     }
 

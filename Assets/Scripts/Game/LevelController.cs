@@ -32,9 +32,10 @@ public class LevelController : MonoBehaviour
             Destroy(gameObject);
     }
 
-
     void Start()
     {
+        AudioController.instance.Play("Bgm", "Level1");
+
         xLimit = Screen.width / 2;
         yLimit = objectButtonParent.GetComponent<RectTransform>().sizeDelta.y;
 
@@ -150,6 +151,7 @@ public class LevelController : MonoBehaviour
 
     public void BackToLevels()
     {
+        AudioController.instance.Click();
         SceneController.LoadScene("LevelSelection");
     }
 }

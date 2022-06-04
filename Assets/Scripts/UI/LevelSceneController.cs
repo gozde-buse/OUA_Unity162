@@ -26,15 +26,19 @@ public class LevelSceneController : MonoBehaviour
                 face.GetComponent<Image>().color = Color.white;
             }
         }
+
+        AudioController.instance.Play("Bgm", "Menu");
     }
 
     public void LoadLevel(int levelId)
     {
+        AudioController.instance.Click();
         SceneController.LoadScene("Level" + levelId.ToString());
     }
 
     public void Quit()
     {
+        AudioController.instance.Click();
         Application.Quit();
     }
 }
