@@ -166,3 +166,155 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c49fb492b0dba1e4881c9bb3db308a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1548853391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1548853393}
+  - component: {fileID: 1548853392}
+  m_Layer: 0
+  m_Name: AudioController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1548853392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548853391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e28fa86643c6bd4299a1d9e4677277e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxSprites: []
+  bgmSprites: []
+  sfxButton: {fileID: 0}
+  bgmButton: {fileID: 0}
+  sounds:
+  - name: Bgm
+    clips:
+    - name: Menu
+      clip: {fileID: 8300000, guid: 0499346a7d4e77e4dad63800156f155b, type: 3}
+      loop: 1
+      volume: 0.5
+    - name: Level1
+      clip: {fileID: 8300000, guid: 806aac89de7e85d4bab43f794936a286, type: 3}
+      loop: 1
+      volume: 0.2
+    isSFX: 0
+    source: {fileID: 0}
+  - name: Sfx
+    clips:
+    - name: Happy
+      clip: {fileID: 8300000, guid: b6123efe8a8296e4693ceb047b6e8080, type: 3}
+      loop: 0
+      volume: 0.8
+    - name: Sad
+      clip: {fileID: 8300000, guid: 485f1d8343c81824783327007f29013d, type: 3}
+      loop: 0
+      volume: 0.8
+    - name: Excited
+      clip: {fileID: 8300000, guid: 59114d2f8ad9815459fbe07069d21020, type: 3}
+      loop: 0
+      volume: 0.8
+    - name: Click
+      clip: {fileID: 8300000, guid: d3855314be2b9cf469061e00ff447143, type: 3}
+      loop: 0
+      volume: 1
+    - name: Correct
+      clip: {fileID: 8300000, guid: f301f406531e3064099e19e38e2c7e19, type: 3}
+      loop: 0
+      volume: 0.7
+    - name: Wrong
+      clip: {fileID: 8300000, guid: dbc91ff8209ecea44a1781cc983372dd, type: 3}
+      loop: 0
+      volume: 0.7
+    isSFX: 1
+    source: {fileID: 0}
+  - name: Song
+    clips:
+    - name: SingAlone
+      clip: {fileID: 8300000, guid: d3a0b919ff6b50c43aed7d62ba1b5ba0, type: 3}
+      loop: 0
+      volume: 0.5
+    - name: SingCrowd
+      clip: {fileID: 0}
+      loop: 1
+      volume: 0.5
+    isSFX: 0
+    source: {fileID: 0}
+  - name: Information
+    clips:
+    - name: Strawberry
+      clip: {fileID: 8300000, guid: d21ffef2a5f1cad4cadb5ae6af59d408, type: 3}
+      loop: 0
+      volume: 1
+    - name: Apple
+      clip: {fileID: 8300000, guid: e1e55677d9474e34fa4ff149f683ab77, type: 3}
+      loop: 1
+      volume: 1
+    - name: Orange
+      clip: {fileID: 8300000, guid: 4c8c10bf084bc0944be6fb51c6961076, type: 3}
+      loop: 1
+      volume: 1
+    - name: Cherry
+      clip: {fileID: 8300000, guid: 275666e9bbee59d4c88e5c7c21c3145e, type: 3}
+      loop: 1
+      volume: 1
+    - name: Banana
+      clip: {fileID: 8300000, guid: a2b51924d15fed54dae150019c34262b, type: 3}
+      loop: 1
+      volume: 1
+    - name: Broccoli
+      clip: {fileID: 8300000, guid: 305c5a3471beceb4ebf84a10f0709ff5, type: 3}
+      loop: 1
+      volume: 1
+    - name: Pepper
+      clip: {fileID: 8300000, guid: 2af8d581e6b7bd445a8c99c627161de9, type: 3}
+      loop: 1
+      volume: 1
+    - name: Tomato
+      clip: {fileID: 8300000, guid: 140a8a712cd4f8f44a52d3b6be88bc1c, type: 3}
+      loop: 1
+      volume: 1
+    - name: Carrot
+      clip: {fileID: 8300000, guid: 715a5185e0678554dbf13159a7397b97, type: 3}
+      loop: 1
+      volume: 1
+    - name: Onion
+      clip: {fileID: 8300000, guid: a590a7cb84bf85a468f85ffaf8aed74e, type: 3}
+      loop: 1
+      volume: 1
+    - name: Fruit
+      clip: {fileID: 8300000, guid: 5099e0508a1672c47a641355b47c2856, type: 3}
+      loop: 1
+      volume: 1
+    - name: Vegetable
+      clip: {fileID: 8300000, guid: ff23e7bafad89364dbf3282d7ffc913e, type: 3}
+      loop: 1
+      volume: 1
+    isSFX: 1
+    source: {fileID: 0}
+--- !u!4 &1548853393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548853391}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
