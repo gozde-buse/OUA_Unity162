@@ -83,10 +83,19 @@ public class LevelController : MonoBehaviour
 
         if(totalButton == 0)
         {
-            endGamePanel.SetActive(true);
+            StartCoroutine(EndGame());
             PlayerStats.SetLevelStar(0, startCount);
             SaveManagement.Save();
         }
+    }
+
+    private IEnumerator EndGame()
+    {
+        AudioController.instance.Play("Song", "SingCrowd");
+
+        yield return new WaitForSeconds(3.5f);
+
+        endGamePanel.SetActive(true);
     }
 
     public void IncreaseStarCount()
@@ -147,6 +156,11 @@ public class LevelController : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void VoiceBasketName(string name)
+    {
+        AudioController.instance.Play("Info", name);
     }
 
     public void BackToLevels()

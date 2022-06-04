@@ -7,13 +7,14 @@ public class ObjectButton : MonoBehaviour
 {
     public enum Name { Strawberry, Apple, Orange, Cherry, Banana, Broccoli, Pepper, Tomato, Carrot, Onion }
 
-    [SerializeField] private Name name;
+    [SerializeField] private Name nameOfButton;
     [SerializeField] private GameObject objectToDragPrefab;
     [SerializeField] private Sprite dragPlaceholderSprite;
     [SerializeField] private GameObject correctObject;
 
     private float timeofTouch = 0;
     private bool touching = false;
+    private bool dragging = false;
 
     private Sprite normalSprite;
 
@@ -33,7 +34,8 @@ public class ObjectButton : MonoBehaviour
 
     public void Touch()
     {
-        AudioController.instance.Play("Info", name.ToString());
+        if(!dragging)
+            AudioController.instance.Play("Info", nameOfButton.ToString());
 
         timeofTouch = 0;
         touching = false;
@@ -54,6 +56,7 @@ public class ObjectButton : MonoBehaviour
     {
         timeofTouch = 0;
         touching = false;
+        dragging = true;
 
         GetComponent<Image>().sprite = dragPlaceholderSprite;
 
@@ -68,6 +71,7 @@ public class ObjectButton : MonoBehaviour
 
     public void LoadBack()
     {
+        dragging = false;
         LevelController.instance.DecreaseStarCount();
         LevelController.instance.ChangeSide(0);
 
@@ -79,8 +83,8 @@ public class ObjectButton : MonoBehaviour
 
     public void CorrectPlacement()
     {
+        dragging = false;
         LevelController.instance.ChangeSide(0);
-        AudioController.instance.Play("Song", "SingAlone");
         StartCoroutine(CorrectPlacementAnimation());
     }
 

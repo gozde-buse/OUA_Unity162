@@ -234,12 +234,9 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Song
     clips:
-    - name: SingAlone
-      clip: {fileID: 8300000, guid: d3a0b919ff6b50c43aed7d62ba1b5ba0, type: 3}
-      volume: 0.8
     - name: SingCrowd
-      clip: {fileID: 0}
-      volume: 0.5
+      clip: {fileID: 8300000, guid: d3a0b919ff6b50c43aed7d62ba1b5ba0, type: 3}
+      volume: 1
     isSFX: 0
     source: {fileID: 0}
   - name: Info

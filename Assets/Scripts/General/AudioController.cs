@@ -54,10 +54,16 @@ public class AudioController : MonoBehaviour
             return;
         }
 
+        if (sound.source.clip != null && sound.source.clip.name != soundClip.name)
+        {
+            sound.source.Stop();
+        }
+
         sound.source.clip = soundClip.clip;
         sound.source.volume = soundClip.volume * (sound.isSFX ? volumeMultiplierSFX : volumeMultiplierBGM);
 
-        sound.source.Play();
+        if (!sound.source.isPlaying)
+            sound.source.Play();
     }
 
     public void MuteUnmuteBgm()
@@ -76,7 +82,7 @@ public class AudioController : MonoBehaviour
 
     public void Click()
     {
-        AudioController.instance.Play("Sfx", "Click");
+        Play("Sfx", "Click");
     }
 }
 

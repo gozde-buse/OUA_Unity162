@@ -11,15 +11,39 @@ public class Object : MonoBehaviour
 
     private ObjectButton button;
     private Animator animator;
+    private bool dropped;
+    private Type? dropBasketType;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
+        ChangeFace(0);
         AudioController.instance.Play("Sfx", "Excited");
     }
 
     void Update()
     {
+        Type? currentDropBasketType = ControlDropBasket();
+
+        if (currentDropBasketType == Type.Fruit && dropBasketType != Type.Fruit)
+        {
+            dropBasketType = currentDropBasketType;
+            LevelController.instance.ChangeSide(-1);
+            ChangeFace(-1);
+        }
+        else if (currentDropBasketType == Type.Vegetable && dropBasketType != Type.Vegetable)
+        {
+            dropBasketType = currentDropBasketType;
+            LevelController.instance.ChangeSide(1);
+            ChangeFace(1);
+        }
+        else if(currentDropBasketType == null && dropBasketType != null)
+        {
+            dropBasketType = currentDropBasketType;
+            LevelController.instance.ChangeSide(0);
+            ChangeFace(0);
+        }
+
         if (Input.GetMouseButtonUp(0))
             DropToBasket();
     }
@@ -29,28 +53,12 @@ public class Object : MonoBehaviour
         Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         newPosition.z = 0;
         transform.position = newPosition;
-
-        Type? dropBasketType = ControlDropBasket();
-
-        if (dropBasketType == Type.Fruit)
-        {
-            LevelController.instance.ChangeSide(-1);
-            ChangeFace(-1);
-        }
-        else if (dropBasketType == Type.Vegetable)
-        {
-            LevelController.instance.ChangeSide(1);
-            ChangeFace(1);
-        }
-        else
-        {
-            LevelController.instance.ChangeSide(0);
-            ChangeFace(0);
-        }
     }
 
     private void DropToBasket()
     {
+        dropped = true;
+
         Type? dropBasketType = ControlDropBasket();
 
         if ((dropBasketType == Type.Fruit && Type.Fruit == type) ||
@@ -73,19 +81,22 @@ public class Object : MonoBehaviour
 
     private void ChangeFace(int index)
     {
+        if (dropped)
+            return;
+
         int faceIndex = 0;
 
         if ((index == -1 && type == Type.Fruit) || (index == 1 && type == Type.Vegetable))
         {
             faceIndex = 1;
-            animator.SetBool("Dancing", true);
             AudioController.instance.Play("Sfx", "Happy");
+            animator.SetBool("Dancing", true);
         }
         else if ((index == -1 && type != Type.Fruit) || (index == 1 && type != Type.Vegetable))
         {
             faceIndex = 2;
-            animator.SetBool("Dancing", false);
             AudioController.instance.Play("Sfx", "Sad");
+            animator.SetBool("Dancing", false);
         }
         else
         {
