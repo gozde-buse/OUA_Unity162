@@ -762,7 +762,12 @@ MonoBehaviour:
       clip: {fileID: 8300000, guid: 806aac89de7e85d4bab43f794936a286, type: 3}
       volume: 0.2
     isSFX: 0
+    isLoop: 1
     source: {fileID: 0}
+    currentClip:
+      name: 
+      clip: {fileID: 0}
+      volume: 0
   - name: Sfx
     clips:
     - name: Happy
@@ -784,14 +789,24 @@ MonoBehaviour:
       clip: {fileID: 8300000, guid: dbc91ff8209ecea44a1781cc983372dd, type: 3}
       volume: 0.7
     isSFX: 1
+    isLoop: 0
     source: {fileID: 0}
+    currentClip:
+      name: 
+      clip: {fileID: 0}
+      volume: 0
   - name: Song
     clips:
     - name: SingCrowd
       clip: {fileID: 8300000, guid: d3a0b919ff6b50c43aed7d62ba1b5ba0, type: 3}
       volume: 1
     isSFX: 0
+    isLoop: 0
     source: {fileID: 0}
+    currentClip:
+      name: 
+      clip: {fileID: 0}
+      volume: 0
   - name: Info
     clips:
     - name: Strawberry
@@ -831,7 +846,12 @@ MonoBehaviour:
       clip: {fileID: 8300000, guid: ff23e7bafad89364dbf3282d7ffc913e, type: 3}
       volume: 1
     isSFX: 0
+    isLoop: 0
     source: {fileID: 0}
+    currentClip:
+      name: 
+      clip: {fileID: 0}
+      volume: 0
 --- !u!4 &1548853393
 Transform:
   m_ObjectHideFlags: 0

@@ -29,7 +29,10 @@ public class AudioController : MonoBehaviour
             DontDestroyOnLoad(audioButtons);
 
             foreach (Sound sound in sounds)
+            {
                 sound.source = gameObject.AddComponent<AudioSource>();
+                sound.source.loop = sound.isLoop;
+            }
         }
         else
         {
@@ -119,6 +122,7 @@ public class Sound
     public string name;
     public Clip[] clips;
     public bool isSFX;
+    public bool isLoop;
 
     [HideInInspector] public AudioSource source;
     [HideInInspector] public Clip currentClip;
