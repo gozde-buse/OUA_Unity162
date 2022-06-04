@@ -13,9 +13,12 @@ public class Object : MonoBehaviour
     private Animator animator;
     private bool dropped;
     private Type? dropBasketType;
+    private float yOffset;
 
     void Awake()
     {
+        yOffset = GetComponent<SpriteRenderer>().bounds.size.y / 2;
+
         animator = GetComponent<Animator>();
         ChangeFace(0);
         AudioController.instance.Play("Sfx", "Excited");
@@ -70,6 +73,7 @@ public class Object : MonoBehaviour
 
 #endif
 
+        newPosition.y += yOffset;
         newPosition.z = 0;
         transform.position = newPosition;
     }
@@ -129,7 +133,16 @@ public class Object : MonoBehaviour
 
     private Type? ControlDropBasket()
     {
-        Vector2 dropPosition = Camera.main.WorldToScreenPoint(transform.position);
+
+#if UNITY_EDITOR
+
+        Vector3 dropPosition = Input.mousePosition;
+
+#elif UNITY_ANDROID
+
+        Vector3 dropPosition = Input.GetTouch(0).position;
+
+#endif
 
         if (dropPosition.y < LevelController.instance.yLimit)
             return null;

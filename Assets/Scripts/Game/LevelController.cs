@@ -37,7 +37,7 @@ public class LevelController : MonoBehaviour
         AudioController.instance.Play("Bgm", "Level1");
 
         xLimit = Screen.width / 2;
-        yLimit = objectButtonParent.GetComponent<RectTransform>().sizeDelta.y;
+        yLimit = objectButtonParent.GetComponent<RectTransform>().sizeDelta.y * Screen.height / 1080;
 
         ShuffleObjectButtons();
 
