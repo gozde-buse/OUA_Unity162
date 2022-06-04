@@ -34,7 +34,13 @@ public class ObjectButton : MonoBehaviour
 
     public void Touch()
     {
-        if(!dragging)
+#if UNITY_ANDROID
+
+        if(Input.touchCount > 1)   
+            return;
+
+#endif
+        if (!dragging)
             AudioController.instance.Play("Info", nameOfButton.ToString());
 
         timeofTouch = 0;
@@ -43,17 +49,38 @@ public class ObjectButton : MonoBehaviour
 
     public void StartTouching()
     {
+#if UNITY_ANDROID
+
+        if(Input.touchCount > 1)   
+            return;
+
+#endif
+
         touching = true;
     }
 
     public void StopTouching()
     {
+#if UNITY_ANDROID
+
+        if(Input.touchCount > 1)   
+            return;
+
+#endif
+
         timeofTouch = 0;
         touching = false;
     }
 
     public void StartObjectDragging()
     {
+#if UNITY_ANDROID
+
+        if(Input.touchCount > 1)   
+            return;
+
+#endif
+
         timeofTouch = 0;
         touching = false;
         dragging = true;
@@ -63,7 +90,16 @@ public class ObjectButton : MonoBehaviour
         foreach (Transform face in transform)
             face.gameObject.SetActive(false);
 
+#if UNITY_EDITOR
+
         Vector3 sPanposition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+#elif UNITY_ANDROID
+
+        Vector3 sPanposition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+
+#endif
+
         sPanposition.z = 0;
         GameObject objectToDrag = Instantiate(objectToDragPrefab, sPanposition, objectToDragPrefab.transform.rotation);
         objectToDrag.GetComponent<Object>().SetButton(this);
@@ -77,7 +113,7 @@ public class ObjectButton : MonoBehaviour
 
         GetComponent<Image>().sprite = normalSprite;
 
-        foreach(Transform face in transform)
+        foreach (Transform face in transform)
             face.gameObject.SetActive(true);
     }
 

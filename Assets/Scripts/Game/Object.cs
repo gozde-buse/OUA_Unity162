@@ -44,13 +44,32 @@ public class Object : MonoBehaviour
             ChangeFace(0);
         }
 
+#if UNITY_EDITOR
+
         if (Input.GetMouseButtonUp(0))
             DropToBasket();
+
+#elif UNITY_ANDROID
+
+        if ( Input.GetTouch(0).phase == TouchPhase.Ended || Input.GetTouch(0).phase == TouchPhase.Canceled )
+            DropToBasket();
+
+#endif
     }
 
     void FixedUpdate()
     {
+
+#if UNITY_EDITOR
+
         Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+#elif UNITY_ANDROID
+
+        Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.GetTouch(0).position);
+
+#endif
+
         newPosition.z = 0;
         transform.position = newPosition;
     }
