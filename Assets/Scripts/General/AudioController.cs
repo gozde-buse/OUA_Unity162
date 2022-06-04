@@ -10,6 +10,7 @@ public class AudioController : MonoBehaviour
     [SerializeField] private Sprite[] bgmSprites;
     [SerializeField] private Button sfxButton;
     [SerializeField] private Button bgmButton;
+    [SerializeField] private GameObject audioButtons;
 
     public static AudioController instance;
     public Sound[] sounds;
@@ -25,6 +26,7 @@ public class AudioController : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(audioButtons);
 
             foreach (Sound sound in sounds)
                 sound.source = gameObject.AddComponent<AudioSource>();
@@ -59,6 +61,7 @@ public class AudioController : MonoBehaviour
             sound.source.Stop();
         }
 
+        sound.currentClip = soundClip;
         sound.source.clip = soundClip.clip;
         sound.source.volume = soundClip.volume * (sound.isSFX ? volumeMultiplierSFX : volumeMultiplierBGM);
 
@@ -68,16 +71,40 @@ public class AudioController : MonoBehaviour
 
     public void MuteUnmuteBgm()
     {
+        Click();
         bgm = !bgm;
         bgmButton.GetComponent<Image>().sprite = bgmSprites[bgm ? 1 : 0];
         volumeMultiplierBGM = bgm ? 1 : 0;
+
+        foreach(Sound sound in sounds)
+        {
+            if(!sound.isSFX)
+            {
+                if (bgm && sound.source.clip != null)
+                    sound.source.volume = sound.currentClip.volume;
+                else
+                    sound.source.volume = bgm ? 1 : 0;
+            }
+        }
     }
 
     public void MuteUnmuteSfx()
     {
+        Click();
         sfx = !sfx;
         sfxButton.GetComponent<Image>().sprite = sfxSprites[sfx ? 1 : 0];
         volumeMultiplierSFX = sfx ? 1 : 0;
+
+        foreach (Sound sound in sounds)
+        {
+            if (sound.isSFX)
+            {
+                if (bgm && sound.source.clip != null)
+                    sound.source.volume = sound.currentClip.volume;
+                else
+                    sound.source.volume = bgm ? 1 : 0;
+            }
+        }
     }
 
     public void Click()
@@ -94,6 +121,7 @@ public class Sound
     public bool isSFX;
 
     [HideInInspector] public AudioSource source;
+    [HideInInspector] public Clip currentClip;
 }
 
 [Serializable]
