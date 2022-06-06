@@ -35,7 +35,8 @@ Oyun ve Uygulama Akademisi Bootcamp projesi için açılmış repodur.
 - **Audiolar**:
   - [And Just Like That](https://github.com/gozde-buse/OUA_Unity162/blob/main/Assets/Audios/And%20Just%20Like%20That.mp3), [Funshine](https://github.com/gozde-buse/OUA_Unity162/blob/main/Assets/Audios/Funshine.mp3): [lisans](https://freepd.com/)
   - [Singing](https://github.com/gozde-buse/OUA_Unity162/blob/main/Assets/Audios/Singing.mp3) Orijinal isim: ukulele-loop-with-vocals-by-rea-31118, [Wee](https://github.com/gozde-buse/OUA_Unity162/blob/main/Assets/Audios/Wee.mp3) Orijinal isim: wee-19996: [lisans](https://pixabay.com/service/license/)
-  - [Kenney music jingles](https://github.com/gozde-buse/OUA_Unity162/tree/main/Assets/Audios/kenney_musicjingles), [Kenney ui audio](https://github.com/gozde-buse/OUA_Unity162/tree/main/Assets/Audios/kenney_uiaudio): [lisans](https://github.com/gozde-buse/OUA_Unity162/blob/main/Assets/Audios/kenney_uiaudio/License.txt)
+  - [Kenney music jingles](https://github.com/gozde-buse/OUA_Unity162/tree/main/Assets/Audios/kenney_musicjingles): [lisans](https://github.com/gozde-buse/OUA_Unity162/blob/main/Assets/Audios/kenney_musicjingles/License.txt)
+  - [Kenney ui audio](https://github.com/gozde-buse/OUA_Unity162/tree/main/Assets/Audios/kenney_uiaudio): [lisans](https://github.com/gozde-buse/OUA_Unity162/blob/main/Assets/Audios/kenney_uiaudio/License.txt)
   - Kalan sesler bana ait
 - **Fontlar**:
   - [Chubby Crayon](https://github.com/gozde-buse/OUA_Unity162/blob/main/Assets/Fonts/chubby-crayon/ChubbyCrayon-Regular.ttf), [Foo](https://github.com/gozde-buse/OUA_Unity162/blob/main/Assets/Fonts/foo/foo.otf): [lisans](https://www.1001fonts.com/licenses/ffc.html)
