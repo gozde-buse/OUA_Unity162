@@ -39,7 +39,7 @@ Oyun ve Uygulama Akademisi Bootcamp projesi için açılmış repodur.
   - [Kenney ui audio](https://github.com/gozde-buse/OUA_Unity162/tree/main/Assets/Audios/kenney_uiaudio): [lisans](https://github.com/gozde-buse/OUA_Unity162/blob/main/Assets/Audios/kenney_uiaudio/License.txt)
   - Kalan sesler bana ait
 - **Fontlar**:
-  - [Chubby Crayon](https://github.com/gozde-buse/OUA_Unity162/blob/main/Assets/Fonts/chubby-crayon/ChubbyCrayon-Regular.ttf), [Foo](https://github.com/gozde-buse/OUA_Unity162/blob/main/Assets/Fonts/foo/foo.otf): [lisans](https://www.1001fonts.com/licenses/ffc.html)
+  - [Chubby Crayon](https://github.com/gozde-buse/OUA_Unity162/blob/main/Assets/Fonts/chubby-crayon/ChubbyCrayon-Regular.ttf), [Foo](https://github.com/gozde-buse/OUA_Unity162/blob/main/Assets/Fonts/foo/foo.otf): [chubby crayon link](https://www.1001fonts.com/chubby-crayon-font.html), [foo link](https://www.1001fonts.com/foo-font.html) ve [lisans](https://www.1001fonts.com/licenses/ffc.html)
 
 # Sprint 3
 
